@@ -1,10 +1,9 @@
 h1 {
 	font-size: 250%;
-	font-family: arial rgb(255, 255, 255);
+	font-family: arial;
 	color: rgb(255, 255, 255);
 	text-align: center;
 }
-
 h2 {
 	font-size: 175%;
 	font-family: arial rgb(0, 0, 0);
@@ -20,33 +19,6 @@ p {
 	color:white;
 }
 
-.image1 {
-	float: right;
-	padding: 10px;
-}
-
-.image2 {
-	float: left;
-	padding: 10px;
-}
-
-.iframe1 {
-	float: right;
-	padding: 25px;
-}
-
-.iframe2 {
-	float: left;
-}
-
-.iframe3 {
-	float: middle;
-} 
-.container {
-	width: 80%;
-    height: auto;
-	margin: 0 auto;
-}
 
 header {
     width: 100%;
@@ -60,62 +32,65 @@ header::after {
 	clear: both;
 }
 
-
-nav { 
-	font-family: arial; 
-	margin: auto;
-    padding-bottom: 25px;
-	color: #ffffff
-}
-
-nav ul {
+.container {
+    width: 100%;
+    max-width: 100vw; /* Ensures the container doesn't exceed the viewport width */
+    margin: 0 auto;
     text-align: center;
-	margin: 0;
-	padding: 0;
-	list-style: none;
+}
+nav ul {
+    padding-top: 10px; /* This will add some space between the top of the navbar and the nav items */
 }
 
 nav li {
-	display: inline-block;
-	margin-left: 70px;
-    margin-right: 70px;
-	padding-top: 25px;
-
-	position: relative;
+    display: inline-block;
+    margin: 0 15px; /* Spacing between nav items */
 }
 
 nav a {
-	color: #ffffff;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 16px
+    text-decoration: none;
+	font-family: 'Arial', sans-serif;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px; /* Button size */
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 2px solid #000000;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px #0a0a0a, -5px -5px 15px #242424;
+    transition: all 0.3s;
+    position: relative;
 }
 
+nav a:before,
+nav a:after {
+    content: '';
+    position: absolute;
+    width: 0; /* This means the lines will be hidden by default. */
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s;
+}
+
+nav a:before {
+    top: 0;
+    left: 0;
+}
+
+nav a:after {
+    bottom: 0;
+    left: 0;
+}
+
+/* This sets the appearance for the lines when hovering over the nav item. */
+nav a:hover:before,
+nav a:hover:after {
+    width: 100%; /* This means the lines will fully appear on hover. */
+}
 nav a:hover {
-	color: #696969;
+    background: linear-gradient(155deg, #0d0d0d, #1a1a1a); /* Slight shift in gradient for hover effect */
+    box-shadow: 2px 2px 5px #0a0a0a, -2px -2px 5px #242424;
 }
 
-nav a::before{
-	content: '';
-	display: block;
-	height: 5px;
-	width: 100%;
-	background-color: #ffffff;
-
-	position: absolute;
-	top: 0;
-	width: 0%;
-
-	transition: all ease-in-out 250ms;
-}
-
-nav a:hover::before {
-	width: 100%;
-}
-
-a:hover {
-	color: #ffffff;
-}
 
 a {
 	color: #ffffff;
@@ -135,7 +110,7 @@ a {
 
 .section-1{
   height: 110vh;
-  background-image: url(stars.jpg);
+  background-image: url(images/stars.jpg);
   background-attachment: fixed;
   background-size: cover;
   
@@ -160,16 +135,15 @@ a {
   object-fit: cover;
 }
 
-body {
-    margin-left: -5px;
-    margin-top: -5px;
-    height: 100%;
-    padding: 0px;
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
 }
 
 .section-5{
 	height: 100vh;
-	background-image: url(galaxycrop.jpg);
+	background-image: url(images/galaxycrop.jpg);
 	background-attachment: fixed;
 	background-size: cover;
 	
