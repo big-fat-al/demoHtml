@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Cosmic Odyssey</title>
+</head>
+<body>
+    <div class="animation-container">
+        <video autoplay loop muted>
+            <source src="lander.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="launch-button" id="countdown-btn">
+            <div class="launch-text">Prepare for Launch</div>
+            <div class="countdown">
+                <span>3</span>
+                <span>2</span>
+                <span>1</span>
+                <span>Launch!</span>
+            </div>
+        </button>
+    </div>
+    
+    <script>
+        const countdownButton = document.getElementById('countdown-btn');
+        const countdown = countdownButton.querySelector('.countdown');
+        const launchText = countdownButton.querySelector('.launch-text');
+
+        countdownButton.addEventListener('click', () => {
+            countdown.style.display = 'block';
+            launchText.style.display = 'none';
+            let seconds = 3;
+            const countdownInterval = setInterval(() => {
+                countdown.innerHTML = seconds;
+                seconds--;
+                if (seconds < 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'hello.html'; // Navigate to your home page
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

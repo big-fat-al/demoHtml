@@ -1,0 +1,79 @@
+/* style2.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure video doesn't overflow */
+}
+
+.animation-container video {
+    width: 100%;
+    height: auto;
+}
+
+.launch-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.launch-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.launch-button:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
+}
+
+.launch-button:hover::before {
+    transform: scale(1);
+}
+
+.countdown {
+    display: none;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+    animation: countdown-anim 3s steps(3) forwards;
+}
+
+@keyframes countdown-anim {
+    0%, 20% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
